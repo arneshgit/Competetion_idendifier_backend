@@ -34,7 +34,7 @@ router.post('/login', async (req, res) => {
     
     if (doc.exists) {
       const passwordMatch = doc.data().password === req.body.value2;
-      console.log('passwordMatch);
+      
       res.json({ success: passwordMatch });
     } else {
       console.log('false');
