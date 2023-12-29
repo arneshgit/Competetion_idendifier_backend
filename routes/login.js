@@ -30,9 +30,11 @@ router.post('/login', async (req, res) => {
     const docId = req.body.value1;
     const docRef = db.collection('users').doc(docId);
     const doc = await docRef.get();
+    console.log(docId);
     
     if (doc.exists) {
       const passwordMatch = doc.data().password === req.body.value2;
+      console.log('passwordMatch);
       res.json({ success: passwordMatch });
     } else {
       console.log('false');
